@@ -1,0 +1,27 @@
+/* Colors! */
+*, html, body, div {
+  color: #eee;
+  background: #333;
+}
+
+a {
+  color: #aae;
+}
+
+a:active, a:hover {
+  color: #eaa;
+}
+
+a:visited {
+  color: #eae;
+}
+
+/* Nav Layout */
+.nav li {
+  margin-right: 5px;
+}
+
+.sidebar-block ul {
+  list-style: none;
+  margin-left:15px;
+}
