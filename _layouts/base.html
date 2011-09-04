@@ -1,0 +1,83 @@
+{% unless page.author %}{% assign author = site.author %}{% else %}{% assign author = page.author %}{% endunless %}
+{% unless page.subtitle %}{% assign subtitle = site.subtitle %}{% else %}{% assign subtitle = page.subtitle %}{% endunless %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <base href="{{ site.url }}">
+  <meta name="author" content="{{ author }}">
+  <meta name="description" content="{{ subtitle }}">
+  <meta name="generator" content="{{ site.generator }}">
+  <meta name="keywords" contents="{{site.keywords}} {{ post.categories }}">
+
+  <title>{{ post.title }} - {{ site.name }}</title>
+
+  <link rel="alternate" href="{{ site.url }}/index.xml" type="application/atom+xml">
+
+  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/css/inuit.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/css/grid.inuit.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/style.css" type="text/css">
+
+  <script src="{{ site.url }}/{{site.stylepath}}/js/jquery.js"></script>
+  <script src="{{ site.url }}/{{site.stylepath}}/js/site.js"></script>
+  <script src="{{ site.url }}/{{site.stylepath}}/js/navbar.js"></script>
+  <script src="{{ site.url }}/{{site.stylepath}}/js/sidebar.js"></script>
+  <script src="{{ site.url }}/{{site.stylepath}}/script.js"></script>
+
+  <link rel="shortcut icon" href="{{ site.url }}/{{site.stylepath}}/icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="{{ site.url }}/{{site.stylepath}}/icon.png" />
+</head>
+
+<body>
+  <div id="wrapper" class="wrapper">
+
+    <div id="header" class="grid-16">
+      <h2 id="site_title"><a href="{{ site.url }}/">{{ site.name }}</a></h2>
+      <div id="site_subtitle">{{ subtitle }}</div>
+    </div>
+
+  <div class="grids">
+
+    <div id="nav" class="grid-12">
+      <ul class="nav">
+        <li><a href="{{ site.url }}/projects/">Projects</a></li>
+        <li><a href="{{ site.url }}/notes/">Notes</a></li>
+        <li><a href="{{ site.url }}/about/">About me</a></li>
+        <li><a href="{{ site.url }}/contact/">Contact</a></li>
+        <li><a href="{{ site.url }}/links/">Links</a></li>
+      </ul>
+    </div>
+
+    <div id="content" class="grid-13">
+{{ content }}
+    </div>
+
+    <div id="sidebar" class="grid-3">
+      <h3>Code</h3>
+      <div class="sidebar-block" id="sidebar-github">
+      </div>
+
+      <h3>Social, Network</h3>
+      <div class="sidebar-block">
+        <ul>
+          <li><a href="http://twitter.com/tshdw">Twitter</a></li>
+          <li><a href="https://github.com/twinshadow/">Github</a></li>
+          <li><a href="http://www.ohloh.net/accounts/Twinshadow">Ohloh</a></li>
+          <!-- E-mail -->
+          <li><a href="{{ site.url }}/index.xml">Site RSS Feed</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+    <div id="footer" class="grid-16">
+      <div>Copyright 2011, Anthony Cornehl</div>
+      <div>Site generatated by <a href="https://github.com/mojombo/jekyll/wiki">Jekyll</a></div>
+    </div>
+
+  </div>
+</body>
+
+</html>

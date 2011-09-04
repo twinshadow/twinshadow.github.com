@@ -1,0 +1,4 @@
+---
+title: Shortcuts
+layout: page
+---

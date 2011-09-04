@@ -1,0 +1,2 @@
+function sidebar_github () {
+}
