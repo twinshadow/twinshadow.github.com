@@ -1,4 +1,3 @@
-
 maketemp () {
   echo "$(mktemp /tmp/jekyll.XXXXXXXXXX)"
 }
@@ -69,7 +68,7 @@ main () {
 randomquestion () {
 echo "\
 What, is the capitol of Latvia?
-What, is the airspeed velocity of an unlaiden swallow?
+What, is the airspeed velocity of an unladen swallow?
 What, is your favorite color?\
 " | shuf -n1
 }
