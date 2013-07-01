@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-{% unless page.author %}{% assign author = site.author %}{% else %}{% assign author = page.author %}{% endunless %}
 <feed xmlns="http://www.w3.org/2005/Atom">
-
     <title>{{ site.name }}</title>
     <subtitle>{{ site.subtitle }}</subtitle>
     <link href="{{ site.url }}{{ page.url }}" rel="self"/>
-    <link href="{{ site.url }}/"/>
+    <link href="{{ site.url }}{{ site.baseurl }}"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}/</id>
-    <icon>{{ site.url }}/favicon.ico</icon>
-    <logo>{{ site.url }}/{{ site.stylepath }}/ts-logo.jpg</logo>
+    <id>{{ site.url }}{{ site.baseurl }}</id>
+    <icon>{{ site.url }}{{ site.baseurl }}favicon.ico</icon>
+    <logo>{{ site.url }}{{ site.baseurl }}{{ site.stylepath }}ts-logo.jpg</logo>
 
     {% for post in site.posts %}
+    {% unless page.author %}
+    {% assign author = site.author %}
+    {% else %}
+    {% assign author = page.author %}
+    {% endunless %}
     <entry>
         <title>{{ post.title }}</title>
         <link href="{{ site.url }}{{ post.url }}"/>

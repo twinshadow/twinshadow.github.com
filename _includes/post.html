@@ -1,7 +1,11 @@
-{% unless post.author %}{% assign author = site.author %}{% else %}{% assign author = post.author %}{% endunless %}
+{% unless post.author %}
+    {% assign author = site.author %}
+{% else %}
+    {% assign author = post.author %}
+{% endunless %}
     <div class="grid grid-10 post">
-      <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-      <p>Posted by {{ author }} on {{ post.created }}{% if post.modified %}, last updated on {{ post.modified }}{% endif %}
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p>Posted by {{ author }} on {{ post.created | date_to_rfc822 }}{% if post.modified %}, last updated on {{ post.modified }}{% endif %}
       </p>
-{{ post.content }}
+{{ post.content | markdownify}}
     </div>

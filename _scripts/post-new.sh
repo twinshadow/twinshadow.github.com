@@ -10,17 +10,13 @@ if [ ! -d ${POSTS_PATH} ]; then
 fi
 
 FILENAME="${POSTS_PATH}/$(date '+%F_%H%M')_$(echo ${TITLE} | sed -ne 's/ /-/gp').md"
-
-# mktemp
-TMPFILE="$(mktemp jekyll.XXXXXXXXXX)"
-# tempfile
-#TMPFILE="$(tempfile -p jekyll)"
+TMPFILE="$(mktemp /tmp/jekyll.XXXXXXXXXX)"
 
 echo "---"                         >>${TMPFILE}
 echo "layout: post"                >>${TMPFILE}
 echo "title: ${TITLE}"             >>${TMPFILE}
 echo "date: $(date '+%F %T %:z')"  >>${TMPFILE}
-echo "disqus: 1"                   >>${TMPFILE}
+echo "disqus: 0"                   >>${TMPFILE}
 echo "---"                         >>${TMPFILE}
 echo ""                            >>${TMPFILE}
 

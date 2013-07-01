@@ -10,7 +10,7 @@ else
   # Does the path have no suffix? Get title from path and create an index.md file in path
   mkdir -p "${PATH}"
   PATH="${PATH}/index.md" #this should be set somewhere
-  touch "${PATH}" 
+  touch "${PATH}"
 fi;
 
 # mktemp

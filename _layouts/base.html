@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="utf-8">
-  <base href="{{ site.url }}">
+  <!-- <base href="{{ site.url}}{{ site.baseurl }}"> -->
   <meta name="author" content="{{ author }}">
   <meta name="description" content="{{ subtitle }}">
   <meta name="generator" content="{{ site.generator }}">
@@ -13,27 +13,27 @@
 
   <title>{{ post.title }} - {{ site.name }}</title>
 
-  <link rel="alternate" href="{{ site.url }}/index.xml" type="application/atom+xml">
+  <link rel="alternate" href="{{ site.baseurl }}index.xml" type="application/atom+xml">
 
-  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/css/inuit.css" type="text/css">
-  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/css/grid.inuit.css" type="text/css">
-  <link rel="stylesheet" href="{{ site.url }}/{{site.stylepath}}/style.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.styleurl }}css/inuit.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.styleurl }}css/grid.inuit.css" type="text/css">
+  <link rel="stylesheet" href="{{ site.styleurl }}style.css" type="text/css">
 
-  <script src="{{ site.url }}/{{site.stylepath}}/js/jquery.js"></script>
-  <script src="{{ site.url }}/{{site.stylepath}}/js/site.js"></script>
-  <script src="{{ site.url }}/{{site.stylepath}}/js/navbar.js"></script>
-  <script src="{{ site.url }}/{{site.stylepath}}/js/sidebar.js"></script>
-  <script src="{{ site.url }}/{{site.stylepath}}/script.js"></script>
+  <script src="{{ site.styleurl }}js/jquery.js"></script>
+  <script src="{{ site.styleurl }}js/navbar.js"></script>
+  <script src="{{ site.styleurl }}js/sidebar.js"></script>
+  <script src="{{ site.styleurl }}js/site.js"></script>
 
-  <link rel="shortcut icon" href="{{ site.url }}/{{site.stylepath}}/icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="{{ site.url }}/{{site.stylepath}}/icon.png" />
+  <link rel="shortcut icon" href="{{ site.styleurl }}icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="{{ site.styleurl }}icon.png" />
 </head>
 
 <body>
   <div id="wrapper" class="wrapper">
 
     <div id="header" class="grid-16">
-      <h1 id="site_title"><a href="{{ site.url }}/">{{ site.name }}</a></h2>
+      <p><!-- padding --></p>
+      <h1 id="site_title"><a href="{{ site.baseurl }}"><img src="{{ site.styleurl}}twinshadow.png" alt="{{ site.name }}" /></a></h2>
       <div id="site_subtitle">{{ subtitle }}</div>
     </div>
 
@@ -41,11 +41,11 @@
 
     <div id="nav" class="grid-12">
       <ul class="nav">
-        <li><a href="{{ site.url }}/projects/">Projects</a></li>
-        <li><a href="{{ site.url }}/notes/">Notes</a></li>
-        <li><a href="{{ site.url }}/about/">About me</a></li>
-        <li><a href="{{ site.url }}/contact/">Contact</a></li>
-        <li><a href="{{ site.url }}/links/">Links</a></li>
+        <li><a href="{{ site.baseurl }}projects/">Projects</a></li>
+        <li><a href="{{ site.baseurl }}notes/">Notes</a></li>
+        <li><a href="{{ site.baseurl }}about/">About me</a></li>
+        <li><a href="{{ site.baseurl }}contact/">Contact</a></li>
+        <li><a href="{{ site.baseurl }}links/">Links</a></li>
       </ul>
     </div>
 
@@ -65,7 +65,7 @@
           <li><a href="https://github.com/twinshadow/">Github</a></li>
           <li><a href="http://www.ohloh.net/accounts/Twinshadow">Ohloh</a></li>
           <!-- E-mail -->
-          <li><a href="{{ site.url }}/index.xml">Site RSS Feed</a></li>
+          <li><a href="{{ site.baseurl }}index.xml">Site RSS Feed</a></li>
         </ul>
       </div>
     </div>
@@ -73,7 +73,7 @@
   </div>
 
     <div id="footer" class="grid-16">
-      <div>Copyright 2011, Anthony Cornehl</div>
+      <div>Copyright 2011-2013, Anthony Cornehl</div>
       <div>Site generatated by <a href="https://github.com/mojombo/jekyll/wiki">Jekyll</a></div>
     </div>
 

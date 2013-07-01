@@ -21,7 +21,7 @@ header () {
     tag 'author'  "$AUTHOR"
   fi
   tag 'layout'  "$LAYOUT"
-  tag 'created' "$(date -u +%FT%T%:z)"
+  tag 'created' "$(date +%FT%T%:z)"
   tag 'tags'    "$TAGS"
   echo "---"
   echo ''
@@ -56,7 +56,7 @@ main () {
   vim -c "set spell spelllang=en" -c "set nonu" -c "set ft=markdown" + "$TEMPFILE"
   if [ "$(md5sum $TEMPFILE)" != "$HASH" ]; then
     echo "Saving the post to $(postfile)"
-    cp "$TEMPFILE" "$(postfile)" || (echo "The copy returned an error. Make a copy of $TEMPFILE to save your post\!"; exit 1)
+    cp "$TEMPFILE" "$(postfile)" || { echo "The copy returned an error. Make a copy of $TEMPFILE to save your post\!"; exit 1; }
   fi
   clean
 
