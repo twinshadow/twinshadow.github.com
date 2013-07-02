@@ -1,83 +1,79 @@
-{% unless page.author %}{% assign author = site.author %}{% else %}{% assign author = page.author %}{% endunless %}
-{% unless page.subtitle %}{% assign subtitle = site.subtitle %}{% else %}{% assign subtitle = page.subtitle %}{% endunless %}
 <!DOCTYPE html>
 <html lang="en">
 
+{% if page.author %}{% assign author = page.author %}{% else %}{% assign author = site.author %}{% endif %}
+{% if page.subtitle %}{% assign subtitle = page.subtitle %}{% else %}{% assign subtitle = site.subtitle %}{% endif %}
+
 <head>
-  <meta charset="utf-8">
-  <!-- <base href="{{ site.url}}{{ site.baseurl }}"> -->
-  <meta name="author" content="{{ author }}">
-  <meta name="description" content="{{ subtitle }}">
-  <meta name="generator" content="{{ site.generator }}">
-  <meta name="keywords" contents="{{site.keywords}} {{ post.categories }}">
+    <meta charset="utf-8">
+    <!-- <base href="{{ site.url}}{{ site.baseurl }}"> -->
+    <meta name="author" content="{{ author }}">
+    <meta name="description" content="{{ subtitle }}">
+    <meta name="generator" content="{{ site.generator }}">
+    <meta name="keywords" contents="{{site.keywords}} {{ page.categories }}">
 
-  <title>{{ post.title }} - {{ site.name }}</title>
+    <title>{% if page.title %}{{ page.title }} -- {% endif %}{{ site.name }}</title>
 
-  <link rel="alternate" href="{{ site.baseurl }}index.xml" type="application/atom+xml">
+    <link rel="alternate" href="{{ site.baseurl }}index.xml" type="application/atom+xml">
 
-  <link rel="stylesheet" href="{{ site.styleurl }}css/inuit.css" type="text/css">
-  <link rel="stylesheet" href="{{ site.styleurl }}css/grid.inuit.css" type="text/css">
-  <link rel="stylesheet" href="{{ site.styleurl }}style.css" type="text/css">
+    <link rel="stylesheet" href="{{ site.styleurl }}css/inuit.css" type="text/css">
+    <link rel="stylesheet" href="{{ site.styleurl }}css/grid.inuit.css" type="text/css">
+    <link rel="stylesheet" href="{{ site.styleurl }}style.css" type="text/css">
 
-  <script src="{{ site.styleurl }}js/jquery.js"></script>
-  <script src="{{ site.styleurl }}js/navbar.js"></script>
-  <script src="{{ site.styleurl }}js/sidebar.js"></script>
-  <script src="{{ site.styleurl }}js/site.js"></script>
+    <script src="{{ site.styleurl }}js/jquery.js"></script>
+    <script src="{{ site.styleurl }}js/navbar.js"></script>
+    <script src="{{ site.styleurl }}js/sidebar.js"></script>
+    <script src="{{ site.styleurl }}js/site.js"></script>
 
-  <link rel="shortcut icon" href="{{ site.styleurl }}icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="{{ site.styleurl }}icon.png" />
+    <link rel="shortcut icon" href="{{ site.styleurl }}icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="{{ site.styleurl }}icon.png" />
 </head>
 
 <body>
-  <div id="wrapper" class="wrapper">
+    <div id="wrapper" class="wrapper">
+        <div id="header" class="grid-16">
+            <p><!-- padding --></p>
+            <h1 id="site_title"><a href="{{ site.baseurl }}"><img src="{{ site.styleurl}}twinshadow.png" alt="{{ site.name }}" /></a></h1>
+            <div id="site_subtitle">{{ subtitle }}</div>
+        </div>
 
-    <div id="header" class="grid-16">
-      <p><!-- padding --></p>
-      <h1 id="site_title"><a href="{{ site.baseurl }}"><img src="{{ site.styleurl}}twinshadow.png" alt="{{ site.name }}" /></a></h2>
-      <div id="site_subtitle">{{ subtitle }}</div>
+        <div class="grids">
+            <div id="nav" class="grid-12">
+                <ul class="nav">
+                    <li><a href="{{ site.baseurl }}Projects/">Projects</a></li>
+                    <li><a href="{{ site.baseurl }}Notes/">Notes</a></li>
+                    <li><a href="{{ site.baseurl }}About/">About me</a></li>
+                    <li><a href="{{ site.baseurl }}Contact/">Contact</a></li>
+                    <li><a href="{{ site.baseurl }}Links/">Links</a></li>
+                </ul>
+            </div>
+
+            <div id="content" class="grid-13">
+                {{ content }}
+            </div>
+
+            <div id="sidebar" class="grid-3">
+                <h3>Code</h3>
+                <div class="sidebar-block" id="sidebar-github"></div>
+
+                <h3>Social, Network</h3>
+                <div class="sidebar-block">
+                    <ul>
+                        <li><a href="http://twitter.com/tshdw">Twitter</a></li>
+                        <li><a href="https://github.com/twinshadow/">Github</a></li>
+                        <li><a href="http://www.ohloh.net/accounts/Twinshadow">Ohloh</a></li>
+                        <!-- E-mail -->
+                        <li><a href="{{ site.baseurl }}index.xml">Site RSS Feed</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="grid-16">
+            <div>Copyright 2011-2013, Anthony Cornehl</div>
+            <div>Site generatated by <a href="https://github.com/mojombo/jekyll/wiki">Jekyll</a></div>
+        </div>
     </div>
-
-  <div class="grids">
-
-    <div id="nav" class="grid-12">
-      <ul class="nav">
-        <li><a href="{{ site.baseurl }}projects/">Projects</a></li>
-        <li><a href="{{ site.baseurl }}notes/">Notes</a></li>
-        <li><a href="{{ site.baseurl }}about/">About me</a></li>
-        <li><a href="{{ site.baseurl }}contact/">Contact</a></li>
-        <li><a href="{{ site.baseurl }}links/">Links</a></li>
-      </ul>
-    </div>
-
-    <div id="content" class="grid-13">
-{{ content }}
-    </div>
-
-    <div id="sidebar" class="grid-3">
-      <h3>Code</h3>
-      <div class="sidebar-block" id="sidebar-github">
-      </div>
-
-      <h3>Social, Network</h3>
-      <div class="sidebar-block">
-        <ul>
-          <li><a href="http://twitter.com/tshdw">Twitter</a></li>
-          <li><a href="https://github.com/twinshadow/">Github</a></li>
-          <li><a href="http://www.ohloh.net/accounts/Twinshadow">Ohloh</a></li>
-          <!-- E-mail -->
-          <li><a href="{{ site.baseurl }}index.xml">Site RSS Feed</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-
-    <div id="footer" class="grid-16">
-      <div>Copyright 2011-2013, Anthony Cornehl</div>
-      <div>Site generatated by <a href="https://github.com/mojombo/jekyll/wiki">Jekyll</a></div>
-    </div>
-
-  </div>
 </body>
 
 </html>

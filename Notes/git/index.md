@@ -6,11 +6,11 @@
 </file>
 
 ### New Repository ###
-<code>
+<pre>
 $ git init ~/newrepo
 $ cd ~/newrepo
 $ git commit
-</code>
+</pre>
 
 # References
   * http://git-scm.com/

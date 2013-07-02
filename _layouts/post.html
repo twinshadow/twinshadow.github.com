@@ -2,11 +2,4 @@
 layout: base
 ---
 {% assign post = page %}
-
 {% include post.html %}
-
-{% if page.comments %}
-    {% include disqus.html %}
-{% else %}
-    <h5>No comment.</h5>
-{% endif %}

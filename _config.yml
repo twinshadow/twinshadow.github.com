@@ -7,11 +7,11 @@ pygments: true
 
 # Site Options
 author: Anthony Cornehl
-discus_shortname: twinshadow
 generator: Jekyll
 keywords: tshdw, twinshadow,
 name: Twinshadow
 subtitle: I'll think of something later
+notesurl: /notes/
 styleurl: /style/
 baseurl: /
 url: http://twinshadow.com

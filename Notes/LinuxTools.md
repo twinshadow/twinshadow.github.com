@@ -1,3 +1,7 @@
+---
+title: Linux Tools
+layout: page
+---
 ## shuf ##
 ## lsof ##
 ## di ##

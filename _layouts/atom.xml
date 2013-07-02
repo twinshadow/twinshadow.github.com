@@ -6,15 +6,10 @@
     <link href="{{ site.url }}{{ site.baseurl }}"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.url }}{{ site.baseurl }}</id>
-    <icon>{{ site.url }}{{ site.baseurl }}favicon.ico</icon>
-    <logo>{{ site.url }}{{ site.baseurl }}{{ site.stylepath }}ts-logo.jpg</logo>
-
+    <icon>{{ site.url }}{{ site.styleurl }}icon.png</icon>
+    <logo>{{ site.url }}{{ site.styleurl }}ts-logo.jpg</logo>
     {% for post in site.posts %}
-    {% unless page.author %}
-    {% assign author = site.author %}
-    {% else %}
-    {% assign author = page.author %}
-    {% endunless %}
+    {% if post.author %}{% assign author = post.author %}{% else %}{% assign author = site.author %}{% endif %}
     <entry>
         <title>{{ post.title }}</title>
         <link href="{{ site.url }}{{ post.url }}"/>
@@ -28,5 +23,4 @@
         {% endfor %}
     </entry>
     {% endfor %}
-
 </feed>
